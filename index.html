@@ -1,0 +1,392 @@
+<!doctype html>
+
+<html lang="ko">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>작은 행동의 심리학 — EcoPsych 캠페인</title>
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Nanum+Gothic:wght@300;400;700&display=swap" rel="stylesheet">
+  <style>
+    :root{
+      --ivory: #FFF8F0;
+      --pastel-blue: #BEE3F8;
+      --accent: #8FBFE6;
+      --text: #000000;
+      --muted: #58606a;
+      --radius: 18px;
+      --max-width: 1100px;
+    }
+    /* Reset-ish */
+    *{box-sizing:border-box}
+    html,body{height:100%;margin:0;font-family:"Nanum Gothic", system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial; color:var(--text); background:var(--ivory);}
+    a{color:inherit;text-decoration:none}/* Layout */
+.wrap{max-width:var(--max-width);margin:0 auto}
+header{position:fixed;left:0;right:0;top:0;z-index:40;background:linear-gradient(180deg, rgba(255,255,255,0.85), rgba(255,255,255,0.6));backdrop-filter:blur(6px);border-bottom:1px solid rgba(0,0,0,0.04)}
+.nav{display:flex;align-items:center;justify-content:space-between;padding:14px 20px}
+.brand{display:flex;align-items:center;gap:12px}
+.logo{width:44px;height:44px;background:linear-gradient(135deg,var(--pastel-blue),var(--accent));border-radius:12px;display:flex;align-items:center;justify-content:center;font-weight:700;color:var(--text);box-shadow:0 6px 18px rgba(139,174,197,0.12)}
+.brand h1{font-size:16px;margin:0}
+nav ul{display:flex;gap:12px;align-items:center;margin:0;padding:0;list-style:none}
+nav li{padding:8px 12px;border-radius:12px}
+nav li:hover{background:rgba(0,0,0,0.03)}
+.hero-section{min-height:100vh;display:grid;place-items:center;padding:120px 20px 60px}
+.hero{background:linear-gradient(180deg, rgba(190,227,248,0.18), rgba(255,255,240,0.18));width:100%;border-radius:20px;padding:48px;display:grid;grid-template-columns:1fr;gap:18px;box-shadow:0 12px 40px rgba(11,36,50,0.05)}
+.hero .lead{font-size:28px;line-height:1.2;margin:0}
+.hero p{margin:0;color:var(--muted)}
+
+/* Sections full-screen feel */
+section{min-height:80vh;padding:80px 20px;display:flex;align-items:center}
+.section-inner{width:100%;max-width:var(--max-width);margin:0 auto}
+.cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:18px}
+.card{background:var(--ivory);border-radius:14px;padding:18px;box-shadow:0 8px 30px rgba(11,36,50,0.04);border:1px solid rgba(11,36,50,0.03)}
+.card h3{margin-top:0}
+
+/* Participation area */
+.participate{display:grid;grid-template-columns:1fr 360px;gap:24px;align-items:start}
+.form{background:linear-gradient(180deg, rgba(255,255,255,0.8), rgba(255,255,255,0.6));padding:18px;border-radius:14px}
+label{display:block;font-size:13px;margin-bottom:6px}
+input[type="text"],textarea{width:100%;padding:10px;border-radius:10px;border:1px solid rgba(0,0,0,0.08);font-size:14px}
+textarea{min-height:120px;resize:vertical}
+.btn{display:inline-block;padding:10px 14px;border-radius:10px;background:var(--pastel-blue);border:none;cursor:pointer;font-weight:700}
+.small{font-size:13px;color:var(--muted)}
+
+/* Blog style */
+.posts{display:grid;gap:12px}
+.post{display:flex;gap:12px;align-items:flex-start}
+.post .thumb{width:96px;height:68px;border-radius:10px;background:linear-gradient(135deg,#dbeefb,#f7fbff);flex-shrink:0}
+.post h4{margin:0}
+
+/* Footer */
+footer{padding:40px 20px;background:linear-gradient(180deg, rgba(190,227,248,0.06), transparent)}
+
+/* Reveal animation */
+.reveal{opacity:0;transform:translateY(18px);transition:all 600ms cubic-bezier(.2,.9,.3,1)}
+.reveal.visible{opacity:1;transform:none}
+
+/* Responsive */
+@media (max-width:860px){
+  .participate{grid-template-columns:1fr}
+  .hero .lead{font-size:22px}
+  header .nav{padding:12px}
+}
+
+/* Utility */
+.muted{color:var(--muted)}
+.center{text-align:center}
+.padded{padding:18px}
+
+  </style>
+</head>
+<body>
+  <header>
+    <div class="nav wrap">
+      <div class="brand">
+        <div class="logo">E</div>
+        <div>
+          <h1>EcoPsych</h1>
+          <div class="small muted">작은 행동의 심리학 캠페인</div>
+        </div>
+      </div>
+      <nav>
+        <ul>
+          <li><a href="#home">홈</a></li>
+          <li><a href="#about">심리학 소개</a></li>
+          <li><a href="#action">캠페인</a></li>
+          <li><a href="#participate">참여</a></li>
+          <li><a href="#blog">스토리</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>  <main>
+    <!-- HERO -->
+    <section id="home" class="hero-section">
+      <div class="hero wrap reveal">
+        <h2 class="lead">“지구를 바꾸는 건 거대한 기술이 아니라, 우리의 마음입니다.”</h2>
+        <p class="muted">이 공간은 심리학적 원리로 친환경 행동을 습관으로 만드는 캠페인입니다. 작은 실천을 기록하고, 공유하고, 서로 응원해보세요.</p>
+        <div style="display:flex;gap:12px;margin-top:18px">
+          <a class="btn" href="#participate">지금 참여하기</a>
+          <a class="btn" href="#about" style="background:transparent;border:1px solid rgba(0,0,0,0.06)">심리학 배우기</a>
+        </div>
+      </div>
+    </section><!-- ABOUT -->
+<section id="about" aria-labelledby="aboutTitle">
+  <div class="section-inner">
+    <h2 id="aboutTitle" class="reveal">심리학으로 본 환경 행동</h2>
+    <p class="muted reveal">사람들이 왜 환경 행동을 지속하지 못하는지, 그리고 어떤 심리 전략이 행동을 바꾸는지 간단히 소개합니다.</p>
+    <div class="cards" style="margin-top:18px">
+      <article class="card reveal">
+        <h3>인지 부조화</h3>
+        <p class="small">환경을 걱정하지만 편의성 때문에 행동하지 못할 때가 많습니다. 이를 줄이려면 행동과 태도의 간극을 줄이는 설계가 필요합니다.</p>
+      </article>
+      <article class="card reveal">
+        <h3>사회적 증거</h3>
+        <p class="small">주변 사람들이 하는 행동이 곧 ‘정상’으로 받아들여집니다. 친구·이웃의 좋은 행동을 보이게 하면 확산이 쉬워집니다.</p>
+      </article>
+      <article class="card reveal">
+        <h3>자기효능감</h3>
+        <p class="small">자신이 변화를 만들 수 있다는 믿음은 행동의 가장 큰 동기입니다. 작은 성공 경험을 쌓게 하세요.</p>
+      </article>
+      <article class="card reveal">
+        <h3>습관 형성</h3>
+        <p class="small">반복과 단순한 신호(예: 체크리스트)는 행동을 습관으로 만듭니다. 7일 루틴 챌린지가 효과적입니다.</p>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- ACTION / CAMPAIGNS -->
+<section id="action" style="background:linear-gradient(180deg, rgba(191,229,248,0.2), rgba(255,255,255,0.0));" aria-labelledby="actionTitle">
+  <div class="section-inner">
+    <h2 id="actionTitle" class="reveal">마음을 바꾸는 캠페인</h2>
+    <p class="muted reveal">심리 원리에 맞춘 실천형 캠페인들을 소개합니다.</p>
+    <div class="cards" style="margin-top:18px">
+      <div class="card reveal">
+        <h3>나의 하루, 지구를 위한 한 행동</h3>
+        <p class="small">매일 한 가지 친환경 행동을 기록하고 포인트를 쌓습니다. 포인트는 배지로 표시되어 친구들과 공유할 수 있어요.</p>
+      </div>
+      <div class="card reveal">
+        <h3>친구와 함께 에코 포인트</h3>
+        <p class="small">친구 초대 시 보너스 포인트. 사회적 증거 효과를 이용해 확산을 촉진합니다.</p>
+      </div>
+      <div class="card reveal">
+        <h3>지구에게 편지 쓰기</h3>
+        <p class="small">감정 이입을 자극하는 활동. 자신의 느낌을 글로 표현하고 다른 사람의 편지를 읽으며 공감 능력을 기릅니다.</p>
+      </div>
+      <div class="card reveal">
+        <h3>7일 친환경 루틴</h3>
+        <p class="small">간단한 일과표로 습관화를 돕습니다. 체크리스트로 매일 자신을 평가하세요.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PARTICIPATE -->
+<section id="participate" aria-labelledby="participateTitle">
+  <div class="section-inner">
+    <h2 id="participateTitle" class="reveal">참여하기</h2>
+    <p class="muted reveal">직접 행동을 기록하고, 작은 보상을 받으며 다른 사람들과 경험을 공유해보세요.</p>
+    <div class="participate reveal" style="margin-top:18px">
+      <div>
+        <div class="card form">
+          <h3>오늘의 친환경 행동 기록</h3>
+          <label for="name">이름(별명 가능)</label>
+          <input id="name" type="text" placeholder="예: 수연" />
+
+          <label for="actionInput" style="margin-top:12px">오늘 한 행동</label>
+          <input id="actionInput" type="text" placeholder="예: 텀블러 사용, 대중교통 이용" />
+
+          <label for="note" style="margin-top:12px">한줄 소감 (선택)</label>
+          <textarea id="note" placeholder="오늘의 느낌을 적어보세요..."></textarea>
+
+          <div style="display:flex;gap:10px;margin-top:12px;align-items:center">
+            <button id="submitBtn" class="btn">기록하기</button>
+            <div class="small muted">기록은 로컬에 저장됩니다. 개인정보는 입력하지 마세요.</div>
+          </div>
+        </div>
+
+        <div style="margin-top:14px">
+          <h4 class="small muted">최근 참여자</h4>
+          <div id="feed" class="posts"></div>
+        </div>
+      </div>
+
+      <aside>
+        <div class="card">
+          <h3>진행 상황</h3>
+          <p class="small">누적 참여자 수와 포인트를 확인하세요.</p>
+          <div style="margin-top:12px">
+            <div class="small muted">참여자 수</div>
+            <div id="count" style="font-size:22px;font-weight:700;margin-top:6px">0</div>
+          </div>
+
+          <div style="margin-top:12px">
+            <div class="small muted">내 최근 포인트</div>
+            <div id="mypoints" style="font-size:18px;font-weight:700;margin-top:6px">0</div>
+          </div>
+
+          <div style="margin-top:14px" class="small muted">배지</div>
+          <div id="badges" style="display:flex;gap:8px;margin-top:8px;flex-wrap:wrap">
+            <!-- badges injected -->
+          </div>
+        </div>
+      </aside>
+    </div>
+  </div>
+</section>
+
+<!-- BLOG / STORIES -->
+<section id="blog" style="padding-bottom:120px;" aria-labelledby="blogTitle">
+  <div class="section-inner">
+    <h2 id="blogTitle" class="reveal">스토리 & 블로그</h2>
+    <p class="muted reveal">참여자들의 이야기, 심리학 사례, 감성 글을 모았습니다.</p>
+
+    <div style="display:grid;grid-template-columns:1fr 360px;gap:18px;margin-top:18px">
+      <div>
+        <div id="storyList" class="posts">
+          <!-- sample posts -->
+          <article class="post reveal">
+            <div class="thumb"></div>
+            <div>
+              <h4>텀블러 한 번의 선택이 만든 생각의 변화</h4>
+              <div class="small muted">나는 텀블러를 들고 다니기 시작한 뒤로 플라스틱 컵을 버리게 되는 내 태도를 더 주목하게 되었다.</div>
+            </div>
+          </article>
+          <article class="post reveal">
+            <div class="thumb"></div>
+            <div>
+              <h4>한 주간의 루틴 체험기</h4>
+              <div class="small muted">7일 챌린지에 참여하면서 작은 성공을 쌓는 기쁨을 알게 되었다.</div>
+            </div>
+          </article>
+        </div>
+      </div>
+
+      <aside>
+        <div class="card">
+          <h3>심리 팁</h3>
+          <ul style="padding-left:18px;margin:8px 0">
+            <li class="small muted">작은 목표로 시작해라(매일 1가지)</li>
+            <li class="small muted">친구와 약속하면 더 잘 지켜진다</li>
+            <li class="small muted">행동을 기록하면 자기효능감이 올라간다</li>
+          </ul>
+          <div style="margin-top:8px" class="small muted">원한다면 너의 스토리를 여기에 추가할 수 있어요.</div>
+        </div>
+      </aside>
+    </div>
+  </div>
+</section>
+
+  </main>  <footer>
+    <div class="wrap">
+      <div style="display:flex;justify-content:space-between;align-items:center;gap:12px;flex-wrap:wrap">
+        <div>
+          <strong>EcoPsych</strong>
+          <div class="small muted">작은 행동의 심리학 캠페인 • 교육용 데모</div>
+        </div>
+        <div class="small muted">© 2025 EcoPsych — 제작자: 한수연</div>
+      </div>
+    </div>
+  </footer>  <script>
+    // Simple front-end logic: store entries in localStorage, award points & badges
+    (function(){
+      const submitBtn = document.getElementById('submitBtn');
+      const nameInput = document.getElementById('name');
+      const actionInput = document.getElementById('actionInput');
+      const note = document.getElementById('note');
+      const feed = document.getElementById('feed');
+      const countEl = document.getElementById('count');
+      const mypointsEl = document.getElementById('mypoints');
+      const badgesEl = document.getElementById('badges');
+
+      // load existing
+      const STORAGE_KEY = 'ecopsych_entries_v1';
+      const POINTS_KEY = 'ecopsych_points_v1';
+      const entries = JSON.parse(localStorage.getItem(STORAGE_KEY) || '[]');
+      const pointsStore = JSON.parse(localStorage.getItem(POINTS_KEY) || '{}');
+
+      function renderFeed(){
+        feed.innerHTML = '';
+        const last = entries.slice().reverse().slice(0,8);
+        last.forEach(e => {
+          const el = document.createElement('article'); el.className='post';
+          el.innerHTML = `<div class="thumb"></div><div><h4>${escapeHtml(e.action)}</h4><div class="small muted">${escapeHtml(e.name)} • ${escapeHtml(e.note||'')}</div></div>`;
+          feed.appendChild(el);
+        })
+        countEl.textContent = entries.length;
+      }
+
+      function getMyPoints(name){
+        return pointsStore[name] || 0;
+      }
+
+      function renderPointsAndBadges(name){
+        mypointsEl.textContent = getMyPoints(name);
+        badgesEl.innerHTML = '';
+        const pts = getMyPoints(name);
+        const earned = [];
+        if(pts >= 1) earned.push('첫 기록');
+        if(pts >= 5) earned.push('도전가');
+        if(pts >= 15) earned.push('꾸준한 실천가');
+        earned.forEach(b => {
+          const bEl = document.createElement('div');
+          bEl.textContent = b;
+          bEl.style.padding = '8px 10px';
+          bEl.style.borderRadius = '10px';
+          bEl.style.background = 'linear-gradient(135deg, rgba(190,227,248,0.7), rgba(255,255,240,0.7))';
+          bEl.style.fontSize = '13px';
+          badgesEl.appendChild(bEl);
+        })
+      }
+
+      function addEntry(name, actionText, noteText){
+        const entry = {name, action:actionText, note:noteText, created:new Date().toISOString()};
+        entries.push(entry);
+        localStorage.setItem(STORAGE_KEY, JSON.stringify(entries));
+
+        // points
+        pointsStore[name] = (pointsStore[name]||0) + 1; // simple: 1 point per entry
+        localStorage.setItem(POINTS_KEY, JSON.stringify(pointsStore));
+
+        renderFeed();
+        renderPointsAndBadges(name);
+      }
+
+      submitBtn.addEventListener('click', () => {
+        const name = (nameInput.value || '익명의 참여자').trim();
+        const actionText = (actionInput.value || '').trim();
+        const noteText = (note.value || '').trim();
+        if(!actionText){
+          alert('오늘 한 행동을 적어주세요.');
+          actionInput.focus();
+          return;
+        }
+        addEntry(name, actionText, noteText);
+        actionInput.value = '';
+        note.value = '';
+        // small focus feedback
+        submitBtn.textContent = '기록됨 ✓';
+        setTimeout(()=> submitBtn.textContent = '기록하기',1200);
+      });
+
+      // initial render
+      renderFeed();
+      // If user typed name earlier, show their badges
+      nameInput.addEventListener('blur', ()=>{
+        renderPointsAndBadges(nameInput.value.trim() || '익명의 참여자');
+      })
+
+      // helper: escape
+      function escapeHtml(s){
+        return String(s).replace(/[&<>"']/g, function(m){return {'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":"&#39;"}[m]});
+      }
+
+      // IntersectionObserver for reveal animations
+      const reveals = document.querySelectorAll('.reveal');
+      const io = new IntersectionObserver((entries) => {
+        entries.forEach(e=>{
+          if(e.isIntersecting){
+            e.target.classList.add('visible');
+          }
+        })
+      },{threshold:0.12});
+      reveals.forEach(r=>io.observe(r));
+
+      // smooth anchor scroll behaviour
+      document.querySelectorAll('a[href^="#"]').forEach(a=>{
+        a.addEventListener('click', (ev)=>{
+          ev.preventDefault();
+          const id = a.getAttribute('href').slice(1);
+          const el = document.getElementById(id);
+          if(el) el.scrollIntoView({behavior:'smooth',block:'start'});
+        })
+      })
+
+      // basic accessibility: focus outline on keyboard navigation
+      document.body.addEventListener('keydown',(e)=>{
+        if(e.key==='Tab') document.body.classList.add('show-focus');
+      })
+
+    })();
+  </script></body>
+</html>
